@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="wrapper">
+        <div class="nav-bar">
 
-    <div class="nav-bar">
-
-    </div>
-
-        <div id="app">
-            <div class="product">
-
-                <div class="product__img">
-                    <img src="" alt="">
-                </div>
-                
-                <div class="product__info">
-                    <h1>{{product}}</h1>
-                    <p>{{description}}</p>
-                </div>
-
-                
-
-            </div>
         </div>
 
+        <div id="app">
+            <div class="container">
+                <div class="product">
+
+                        <div class="product__img">
+                            <img v-bind:src="image" v-bind:alt="altImage">
+                        </div>
+
+                        <div class="product__info">
+                            <h1>{{product}}</h1>
+                            <p>{{description}}</p>
+                            <a :href="underWearLink">supplier</a>
+                            <p v-if="inStock">In Stock</p>
+                            <p v-else>Out of Stock</p>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="Https://unpkg.com/vue"></script> <!--include Vue in our project-->
     <script src="js/main.js"></script>
