@@ -30,15 +30,18 @@
                             <p v-else>Out of stock</p>
 
 
-                            <p v-if="onSale">ON SALE</p>
+                            <p :class="{onSaleLine: onSale}">ON SALE</p>
 
                             <p>Склад</p>
                             <ul>
                                 <li v-for="storage in storages">{{storage}}</li>
                             </ul>
 
-                            <div v-for="variant in variants" :key="variant.variantColor">
-                                <p @mouseover="updateProduct(variant.variantImage)">{{variant.variantColor}}</p>
+                            <div v-for="variant in variants"
+                                 :key="variant.variantColor"
+                                 class="color-box"
+                                 :style="{ backgroundColor: variant.variantColor}"
+                                 @mouseover="updateProduct(variant.variantImage)">
                             </div>
 
                             <p>Доступні розміри</p>
@@ -46,7 +49,9 @@
                                 <li v-for="size in sizes">{{size}}</li>
                             </ul>
 
-                            <button v-on:click="addToCart">Додати до кошика</button>
+                            <button v-on:click="addToCart"
+                                    :disabled="!inStock"
+                                    :class="{disabledButton: !inStock}">Додати до кошика</button>
                             <button v-on:click="decreaseFromCart">Відняти товар з кошика</button>
                             <div class="cart">
                                 <p>Кошик({{cart}})</p>

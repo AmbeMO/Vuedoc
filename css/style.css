@@ -56,12 +56,6 @@ a {
   color: inherit;
 }
 
-hr {
-  display: none;
-}
-
-/* we don't need a visual hr in layout */
-/* disables some nasty font attributes in standard browsers */
 font {
   color: inherit !important;
   font: inherit !important;
@@ -92,7 +86,7 @@ body * {
 }
 
 body {
-  background-color: #f7f7f7;
+  background-color: #ffe8e2;
 }
 
 .wrapper {
@@ -103,7 +97,7 @@ body {
 
 .nav-bar {
   height: 80px;
-  background-color: #6a8dc4;
+  background-color: #216a61;
   margin-bottom: 20px;
 }
 
@@ -121,6 +115,7 @@ body {
   width: 100%;
   max-height: 300px;
   overflow: hidden;
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
 }
 .product .product__img img {
   width: 100%;
@@ -128,9 +123,33 @@ body {
   object-fit: cover;
 }
 .product .product__info {
+  padding-left: 10px;
   width: 100%;
+}
+.product .product__info .color-box {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  margin-top: 5px;
+  margin-left: 15px;
 }
 .product .product__info h1 {
   font-size: 30px;
   font-weight: 700;
+}
+.product .product__info button {
+  font-family: monospace;
+  color: #f8bd9e;
+  height: 30px;
+  text-align: center;
+  font-size: 14px;
+  padding: 0px 10px;
+  border-radius: 6px;
+  background-color: #216a61;
+}
+.product .product__info .disabledButton {
+  background-color: #fff;
+}
+.product .product__info .onSaleLine {
+  text-decoration: line-through;
 }

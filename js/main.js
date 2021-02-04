@@ -3,7 +3,8 @@ var app = new Vue({
     data: {
         product: 'Underwear',
         description: 'White underwear for women',
-        image: "./img/white.jpg",
+        image: "./img/white.png",
+        inStock:true,
         altImage: 'White Underwear',
         underWearLink: 'https://www.calvinklein.us/en',
         inventory: 5,
@@ -16,13 +17,13 @@ var app = new Vue({
         variants:[
             {
                 variantId:228,
-                variantColor:"white",
-                variantImage: './img/white.jpg'
+                variantColor:'#f7f7f7',
+                variantImage: './img/white.png'
             },
             {
                 variantId:322,
-                variantColor:"cream",
-                variantImage: './img/cream.jpg'
+                variantColor:"#e2b6a9",
+                variantImage: './img/cream.png'
             }
         ],
         sizes:[
