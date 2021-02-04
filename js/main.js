@@ -16,16 +16,29 @@ var app = new Vue({
         variants:[
             {
                 variantId:228,
-                variantColor:"white"
+                variantColor:"white",
+                variantImage: './img/white.jpg'
             },
             {
                 variantId:322,
-                variantColor:"cream"
+                variantColor:"cream",
+                variantImage: './img/cream.jpg'
             }
         ],
         sizes:[
             36,38,40,42
-        ]
-
+        ],
+        cart:0,
+    },
+    methods:{
+        addToCart: function () {// == addToCart(){
+            this.cart +=1
+        },
+        updateProduct:function (variantImage) {// == updateProduct(variantImage){
+            this.image = variantImage
+        },
+        decreaseFromCart(){// == decreaseFromCart:function(){
+            this.cart -=1 && this.cart>0
+        }
     }
 })

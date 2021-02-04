@@ -38,13 +38,19 @@
                             </ul>
 
                             <div v-for="variant in variants" :key="variant.variantColor">
-                                <p>{{variant.variantColor}}</p>
+                                <p @mouseover="updateProduct(variant.variantImage)">{{variant.variantColor}}</p>
                             </div>
 
                             <p>Доступні розміри</p>
                             <ul>
                                 <li v-for="size in sizes">{{size}}</li>
                             </ul>
+
+                            <button v-on:click="addToCart">Додати до кошика</button>
+                            <button v-on:click="decreaseFromCart">Відняти товар з кошика</button>
+                            <div class="cart">
+                                <p>Кошик({{cart}})</p>
+                            </div>
 
                         </div>
 

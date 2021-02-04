@@ -129,7 +129,6 @@ body {
 }
 .product .product__info {
   width: 100%;
-  text-align: center;
 }
 .product .product__info h1 {
   font-size: 30px;
