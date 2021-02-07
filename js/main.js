@@ -59,11 +59,8 @@ Vue.component('product', {
                             <button v-on:click="addToCart"
                                     :disabled="!inStock"
                                     :class="{disabledButton: !inStock}">Add to cart</button>
-                            <button v-on:click="decreaseFromCart">Decrease from cart</button>
-                            <div class="cart">
-                                <p>Cart({{cart}})</p>
-                            </div>
-
+                            <button v-on:click="decreaseFromCart">Clean the cart</button>
+                            
                         </div>
 
                 </div>
@@ -88,31 +85,32 @@ Vue.component('product', {
                     variantId:228,
                     variantColor:'#f7f7f7',
                     variantImage: './img/white.png',
-                    variantQuantity: 5
+                    variantQuantity: 15
                 },
                 {
                     variantId:322,
                     variantColor:"#e2b6a9",
                     variantImage: './img/cream.png',
-                    variantQuantity: 0
+                    variantQuantity: 10
                 }
             ],
             sizes:[
                 36,38,40,42
             ],
-            cart:0,
+
         }
     },
     methods:{
         addToCart: function () {// == addToCart(){
-            this.cart +=1
+            this.$emit('add-to-cart', this.variants[this.selectedVariant].variantId )
         },
         updateProduct:function (index) {// == updateProduct(variantImage){
             this.selectedVariant = index
             console.log(index)
         },
         decreaseFromCart(){// == decreaseFromCart:function(){
-            this.cart -=1 && this.cart>0
+            this.$emit('clean-the-cart', this.variants[this.selectedVariant].variantId )
+
         }
     },
     computed: {
@@ -146,6 +144,20 @@ Vue.component('product', {
 var app = new Vue({
     el: '#app',
     data: {
-        premium: true
+        premium: true,
+        cart : []
+    },
+    methods: {
+        updateCart(id){
+            this.cart.push(id)
+        },
+        decreaseFromCart(id) {
+            for( var i = this.cart.length - 1; i >= 0; i--){
+                if ( this.cart[i] === id) {
+                    this.cart.splice(i,1);
+                }
+            }
+        }
+
     }
 })

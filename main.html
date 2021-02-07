@@ -13,8 +13,13 @@
 
         <div id="app">
             <div class="container">
-                <product :premium="premium"></product>
-                <product></product>
+
+                <div class="cart">
+                    <p>Cart({{cart.length}})</p>
+                </div>
+
+                <product :premium="premium" @add-to-cart="updateCart" @clean-the-cart="decreaseFromCart"></product>
+<!--                <product @add-to-cart="updateCart"></product>-->
             </div>
         </div>
     </div>
